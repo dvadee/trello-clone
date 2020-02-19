@@ -1,0 +1,76 @@
+@function rem($size) {
+  $remsize: $size / 16;
+
+  @return #{$remsize}rem;
+}
+
+@mixin responsive-hover() {
+  @include max-media(lg) {
+    &:active {
+      @content;
+    }
+  }
+
+  @include min-media(lg) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin bg-image($url, $size: cover, $position: center, $repeat: no-repeat) {
+  background-image: url($url);
+  background-repeat: $repeat;
+  background-size: $size;
+  background-position: $position;
+}
+
+@mixin font-size($size, $line-height) {
+  @if $size {
+    font-size: rem($size);
+  }
+
+  @if ($line-height) {
+    line-height: rem($line-height);
+  }
+}
+
+@mixin block ($parent) {
+  .#{$parent} {
+    @content;
+  }
+}
+
+@mixin element ($parent, $name) {
+  .#{$parent}__#{$name} {
+    @content;
+  }
+}
+
+@mixin element-next ($parent, $name) {
+  + .#{$parent}__#{$name} {
+    @content;
+  }
+}
+
+@mixin modifier($parent, $name) {
+  $length_check: str-length('#{$parent}') + 1;
+
+  @if ($length_check == str-length('#{&}')) {
+    $subQuery: $parent;
+
+    @at-root &.#{$subQuery}--#{$name} {
+      @content;
+    }
+  }
+
+  @else {
+    $length: str-length('.#{$parent} ');
+    $subQuery: str-slice('#{&}', $length + 1);
+    $query: '#{&}#{$subQuery}--#{$name}';
+
+    @at-root #{$query} {
+      @content;
+    }
+  }
+}

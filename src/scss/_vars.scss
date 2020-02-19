@@ -1,0 +1,37 @@
+$ct-offsets: (
+  "default": 15px,
+  "md": 15px,
+  "lg": 15px,
+  "xl": 15px
+);
+
+$sizes: (
+  "sm": 540px,
+  "md": 718px,
+  "lg": 930px,
+  "xl": 1220px
+);
+
+$min-media-sizes: (
+  "sm": 375px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px
+);
+
+$max-media-sizes: (
+  "sm": 374.98px,
+  "md": 767.98px,
+  "lg": 1023.98px,
+  "xl": 1279.98px
+);
+
+$ct-offset: map-get($ct-offsets, "default");
+$primary: #99b1d9;
+$secondary: #182b3d;
+$yellow: #fad920;
+$yellow-gradient: linear-gradient(180deg, #ffe552 0%, #fad920 32.29%, #e9c81a 78.57%);
+$red: #f44336;
+$white: #fff;
+$black: #000;
+$dark: #182b3d;

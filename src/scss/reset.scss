@@ -1,0 +1,33 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+}

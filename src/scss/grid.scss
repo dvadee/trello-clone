@@ -1,0 +1,54 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding-right: $ct-offset;
+  padding-left: $ct-offset;
+
+  @each $name, $size in $sizes {
+    @include min-media($name) {
+      max-width: $size;
+
+      $offset: map-get($ct-offsets, $name);
+
+      @if $offset {
+        padding-left: $offset;
+        padding-right: $offset;
+      }
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -#{$ct-offset};
+  margin-right: -#{$ct-offset};
+
+  @each $name, $size in $sizes {
+    @include min-media($name) {
+      $offset: map-get($ct-offsets, $name);
+
+      @if $offset {
+        margin-left: -#{$offset};
+        margin-right: -#{$offset};
+      }
+    }
+  }
+}
+
+.col {
+  padding-left: $ct-offset;
+  padding-right: $ct-offset;
+
+  @each $name, $size in $sizes {
+    @include min-media($name) {
+      $offset: map-get($ct-offsets, $name);
+
+      @if $offset {
+        padding-left: $offset;
+        padding-right: $offset;
+      }
+    }
+  }
+}
