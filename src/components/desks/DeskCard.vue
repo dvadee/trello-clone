@@ -2,7 +2,7 @@
   .desk-card(
     @click="onCardClick"
     :class="{ 'desk-card--create-new': isCreateNewGhost }"
-    :style="{ backgroundColor: bgColor }"
+    :style="{ backgroundColor: color }"
   )
     .desk-card__fade
     .desk-card__b-content
@@ -10,33 +10,25 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   methods: {
     onCardClick() {
       const { id } = this;
 
-      this.$emit('click', id);
-    }
-  },
-  computed: {
-    ...mapState({ colors: state => state.desks.colors }),
-    bgColor() {
-      const { colorIndex, colors } = this;
-      const bgColor = colors[colorIndex];
-
-      return bgColor || colors[0];
+      this.$emit('cardClick', id);
     }
   },
   props: {
+    id: {
+      type: Number
+    },
     name: {
       type: String,
       default: ''
     },
-    colorIndex: {
-      type: Number,
-      default: 0
+    color: {
+      type: String,
+      default: '#fff'
     },
     isCreateNewGhost: {
       type: Boolean,
@@ -78,6 +70,8 @@ $parent: desk-card;
   }
 
   @include modifier($parent, 'create-new') {
+    background-color: $secondary !important;
+
     @include element($parent, 'b-content') {
       display: flex;
       justify-content: center;
@@ -87,6 +81,14 @@ $parent: desk-card;
 
     @include element($parent, 'title') {
       font-weight: 300;
+
+      @include transition;
+    }
+
+    @include responsive-hover {
+      @include element($parent, 'title') {
+        color: $warning;
+      }
     }
   }
 

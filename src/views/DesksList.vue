@@ -2,26 +2,51 @@
   .desks
     .desks__wrapper
       .desks__item(v-for="item in desks")
-        DeskCard(v-bind="item")
+        DeskCard(v-bind="item" @cardClick="routeToDesk")
       .desks__item
-        DeskCard(:isCreateNewGhost="true")
+        DeskCard(:isCreateNewGhost="true" @cardClick="showAddNewDeskModal")
+    DeskCreateModal(
+      v-if="modalShow"
+      @createDesk="createNewDesk"
+      @close="modalShow = false"
+    )
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import DeskCard from '../components/desks/DeskCard';
+import DeskCreateModal from '../components/desks/DeskCreateModal';
 import { mapState } from 'vuex';
 
 export default {
   name: 'Desks',
   components: {
-    DeskCard
+    DeskCard,
+    DeskCreateModal
   },
-  computed: mapState({ desks: state => state.desks.all }),
-  // methods: mapActions('cart', [
-  //   'addProductToCart'
-  // ]),
   created() {
     this.$store.dispatch('desks/getAllDesks');
+  },
+  data: () => ({
+    modalShow: false
+  }),
+  computed: mapState({ desks: state => state.desks.all }),
+  methods: {
+    ...mapActions('desks', ['createDesk']),
+    routeToDesk(id) {
+      this.$router.push({
+        name: 'Desk',
+        params: { id }
+      });
+    },
+    showAddNewDeskModal() {
+      this.modalShow = true;
+    },
+    createNewDesk(desk) {
+      this.createDesk(desk);
+
+      this.modalShow = false;
+    }
   }
 };
 </script>

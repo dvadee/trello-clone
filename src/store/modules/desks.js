@@ -1,4 +1,5 @@
 import api from '../../services/desks';
+import { last } from 'lodash';
 
 const state = {
   all: [],
@@ -16,6 +17,17 @@ const state = {
 const getters = {};
 
 const actions = {
+  createDesk({ state, commit }, desk = {}) {
+    /**
+     * TODO
+     * join to api
+     */
+    const lastDesk = last(state.all);
+
+    desk.id = lastDesk.id + 1;
+
+    commit('pushDeskToAll', desk);
+  },
   async getAllDesks({ commit }) {
     let desks = [];
 
@@ -39,6 +51,9 @@ const actions = {
 const mutations = {
   setDesksAll(state, desks) {
     state.all = desks;
+  },
+  pushDeskToAll(state, desk) {
+    state.all.push(desk);
   }
 };
 

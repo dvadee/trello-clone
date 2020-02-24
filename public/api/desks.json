@@ -4,27 +4,27 @@
     {
       "id": 1,
       "name": "desk 1",
-      "colorIndex": 1
+      "color": "#303F9F"
     },
     {
       "id": 2,
       "name": "desk 2",
-      "colorIndex": 2
+      "color": "#303F9F"
     },
     {
       "id": 3,
       "name": "desk 3",
-      "colorIndex": 3
+      "color": "#303F9F"
     },
     {
       "id": 4,
       "name": "desk 4",
-      "colorIndex": 4
+      "color": "#303F9F"
     },
     {
       "id": 5,
       "name": "desk 5",
-      "colorIndex": 5
+      "color": "#303F9F"
     }
   ]
 }
