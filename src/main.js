@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import 'mutationobserver-shim';
 import Vue from 'vue';
+import './plugins/fontawesome';
 import './plugins/axios';
 import App from './App.vue';
 import './scss/common.scss';

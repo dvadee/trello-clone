@@ -2,7 +2,7 @@
   header.app-header
     .container
       .app-header__wrapper
-        router-link(to="/").app-header__home-link
+        .app-header__home-link
           .app-header__name Trello-clone VUE
 </template>
 
@@ -27,16 +27,9 @@ $parent: app-header;
   @include element($parent, 'home-link') {
     @include font-size(18, 18);
 
-    color: #fff;
+    color: $yellow;
     font-style: italic;
     font-weight: 600;
-    text-decoration: none;
-
-    @include transition();
-
-    @include responsive-hover {
-      color: $yellow;
-    }
   }
 }
 </style>

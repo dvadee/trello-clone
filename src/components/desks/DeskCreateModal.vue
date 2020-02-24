@@ -35,7 +35,7 @@ export default {
   },
   data: () => ({
     name: '',
-    color: 0
+    color: ''
   }),
   methods: {
     createDesk() {

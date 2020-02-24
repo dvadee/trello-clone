@@ -34,12 +34,12 @@ $parent: desk-color-select;
   @include element($parent, 'wrapper') {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 96px;
     grid-gap: 8px;
   }
 
   @include element($parent, 'color-tile') {
     border-radius: 0.25rem;
+    padding-top: 100%;
 
     @include transition(0.1s);
 
