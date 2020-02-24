@@ -9,7 +9,7 @@ import axios from 'axios';
 
 let config = {
   baseURL:
-    process.env.baseURL || process.env.apiUrl || 'http://localhost:8080/api/',
+    process.env.baseURL || process.env.apiUrl || 'http://localhost:8080/api/'
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 };
@@ -24,7 +24,7 @@ _axios.interceptors.request.use(
   error => {
     // Do something with request error
     return Promise.reject(error);
-  },
+  }
 );
 
 // Add a response interceptor
@@ -36,7 +36,7 @@ _axios.interceptors.response.use(
   error => {
     // Do something with response error
     return Promise.reject(error);
-  },
+  }
 );
 
 export default _axios;

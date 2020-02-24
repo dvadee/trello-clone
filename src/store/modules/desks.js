@@ -1,4 +1,4 @@
-import api from '../../services/desks'
+import api from '../../services/desks';
 
 const state = {
   all: [],
@@ -11,9 +11,9 @@ const state = {
     '#E040FB',
     '#00796B'
   ]
-}
+};
 
-const getters = {}
+const getters = {};
 
 const actions = {
   async getAllDesks({ commit }) {
@@ -24,23 +24,23 @@ const actions = {
       const { data } = res;
 
       if (data.success === false) {
-        throw new Error(data.error)
+        throw new Error(data.error);
       }
 
       desks = data.desks;
     } catch (err) {
       console.error(err);
     } finally {
-      commit('setDesksAll', desks)
+      commit('setDesksAll', desks);
     }
   }
-}
+};
 
 const mutations = {
   setDesksAll(state, desks) {
     state.all = desks;
   }
-}
+};
 
 export default {
   namespaced: true,
@@ -48,4 +48,4 @@ export default {
   state,
   actions,
   mutations
-}
+};
