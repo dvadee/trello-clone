@@ -6,12 +6,16 @@
 
 @mixin responsive-hover() {
   @include max-media(lg) {
+    cursor: default;
+
     &:active {
       @content;
     }
   }
 
   @include min-media(lg) {
+    cursor: pointer;
+
     &:hover {
       @content;
     }
@@ -73,4 +77,9 @@
       @content;
     }
   }
+}
+
+@mixin transition($duration: 0.2s, $timing: linear) {
+  transition-duration: $duration;
+  transition-timing-function: $timing;
 }

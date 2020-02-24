@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "desks": [
+    {
+      "id": 1,
+      "name": "desk 1",
+      "colorIndex": 1
+    },
+    {
+      "id": 2,
+      "name": "desk 2",
+      "colorIndex": 2
+    },
+    {
+      "id": 3,
+      "name": "desk 3",
+      "colorIndex": 3
+    },
+    {
+      "id": 4,
+      "name": "desk 4",
+      "colorIndex": 4
+    },
+    {
+      "id": 5,
+      "name": "desk 5",
+      "colorIndex": 5
+    }
+  ]
+}

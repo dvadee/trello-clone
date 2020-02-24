@@ -1,1 +1,24 @@
-/* bumb */
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-Light.ttf") format("opentype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-Regular.ttf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-Bold.ttf") format("opentype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-BoldItalic.ttf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
